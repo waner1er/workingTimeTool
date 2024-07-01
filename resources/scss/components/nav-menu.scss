@@ -1,0 +1,28 @@
+.nav-menu {
+    @include minWidth($desktop) {
+        display: flex;
+        justify-content: space-between;
+        &__list , &__list--right{
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+
+            &--right {
+
+            }
+        }
+    }
+}
+
+.nav-link__li {
+    margin: 0 5px;
+    &__link {
+        text-decoration: none;
+        color: $black;
+        transition: all 0.25s  ease-in-out;
+        &:hover {
+            color: $primary;
+            transition: all 0.25s  ease-in-out;
+        }
+    }
+}

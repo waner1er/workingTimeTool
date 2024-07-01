@@ -1,0 +1,20 @@
+@mixin minWidth($val) {
+    @media (min-width: $val) {
+        @content
+    }
+}
+
+$primary: rgba(44, 177, 166, 0.9);
+$realWhite: #fff;
+$white: #f8f8f8;
+$black: #494949;
+$danger: #ef6767;
+
+$tablet: 800px;
+$desktop: 1290px;
+$largeDesktop: 1440px;
+$largestDesktop: 1880px;
+
+
+$borderLittleRadius: 4px;
+$borderLargeRadius: 8px;
