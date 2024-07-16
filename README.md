@@ -1,4 +1,4 @@
-# Nom du Projet
+# Working Time Tool
 
 Ce projet Laravel - Livewire - Filament est une plateforme de suivi des heures de travail pour tout utilisateur inscrit. Il vous permet d'enregistrer vos heures de travail quotidiennes et de garder un historique pour faciliter le suivi.
 
