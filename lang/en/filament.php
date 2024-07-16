@@ -2,6 +2,6 @@
 
 return [
     'password' => [
-        'keep-empty' => 'Laissez ce champ vide si vous ne souhaitez pas changer le mot de passe.',
+        'keep-empty' => 'keep this empty if you don\'t want to change anything',
     ]
 ];

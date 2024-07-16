@@ -3,13 +3,16 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Hours;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasFactory, Notifiable;
 
@@ -22,6 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin'
     ];
 
     /**
@@ -47,8 +51,36 @@ class User extends Authenticatable
         ];
     }
 
-    public function hours(): HasMany
+    public function months()
     {
-        return $this->hasMany(Hours::class);
+        return $this->weeks
+            ->sortBy('start_date')
+            ->groupBy(function($week) {
+                return \Carbon\Carbon::parse($week->start_date)->format('Y-m');
+            });
     }
+
+    public function weeks(): HasMany
+    {
+        return $this->hasMany(Week::class);
+    }
+
+    function getIsAdminAttribute(): bool
+    {
+        return $this->attributes['is_admin'];
+    }
+
+    function setIsAdminAttribute(bool $value): void
+    {
+        $this->attributes['is_admin'] = $value;
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        if ($this->getIsAdminAttribute() === true) {
+            return true;
+        }
+        return false;
+    }
+
 }

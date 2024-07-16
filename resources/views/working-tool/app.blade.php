@@ -1,3 +1,8 @@
 <x-layouts.app-layout>
-    app
+    {{ Auth::user()->name }}
+    {{ Auth::user()->firstname }}
+
+    @livewire('time-entry-form')
+
+
 </x-layouts.app-layout>
