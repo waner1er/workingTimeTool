@@ -12,13 +12,16 @@
 <main class="main-app">
     <aside class="main-app__aside">
         <x-nav-menu name="main-app__aside__nav" secondList="true">
-            <x-nav-link  route="welcome" name="welcome"></x-nav-link>
-            <x-nav-link  route="dashboard" name="dashboard"></x-nav-link>
-            <x-nav-link  route="app" name="app"></x-nav-link>
+            <livewire:navlink :name="__('app.welcome')" route="home"/>
+            <livewire:navlink :name="__('app.dashboard')" route="dashboard"/>
+            <livewire:navlink :name="__('app.app')" route="app"/>
             <x-slot name="secondSlot">
-                <x-nav-link route="logout" name="logout"></x-nav-link>
+                <livewire:navlink :name="__('logout')" route="logout"/>
             </x-slot>
         </x-nav-menu>
+{{--        @livewire('nav-menu', ['data'=> '$data', '$name => 'toto'])--}}
+
+{{--        <livewire:nav-menu />--}}
     </aside>
     <div class="app">
         {{ $slot }}

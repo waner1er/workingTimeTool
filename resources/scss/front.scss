@@ -1,2 +1,13 @@
 @import "normalize.css";
+@import "generals";
+@import "components/nav-menu";
 
+.front{
+    &__app {
+        max-width: 1490px;
+        background: #f7fafc;
+        min-height: 100vh;
+        margin: auto;
+        padding: 2rem;
+    }
+}

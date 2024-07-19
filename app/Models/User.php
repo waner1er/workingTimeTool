@@ -60,7 +60,7 @@ class User extends Authenticatable implements FilamentUser
             });
     }
 
-    public function weeks(): HasMany
+    public function week(): HasMany
     {
         return $this->hasMany(Week::class);
     }

@@ -9,13 +9,9 @@ use Illuminate\View\Component;
 class navMenu extends Component
 {
     public string $name;
-    public bool $secondList;
-    public string  $secondSlot;
     public function __construct(string $name, bool $secondList = false, string $secondSlot = '')
     {
         $this->name = $name;
-        $this->secondList = $secondList;
-        $this->secondSlot = $secondSlot;
     }
 
     /**
