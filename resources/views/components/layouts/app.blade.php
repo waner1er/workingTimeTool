@@ -5,25 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title></title>
-    @vite('resources/scss/app.scss')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body id="app-layout" class="app-layout">
-<main class="main-app">
-    <aside class="main-app__aside">
-        <x-nav-menu name="main-app__aside__nav" secondList="true">
-            <livewire:navlink :name="__('app.welcome')" route="home"/>
-            <livewire:navlink :name="__('app.dashboard')" route="dashboard"/>
-            <livewire:navlink :name="__('app.app')" route="app"/>
-            <x-slot name="secondSlot">
-                <livewire:navlink :name="__('logout')" route="logout"/>
-            </x-slot>
-        </x-nav-menu>
-{{--        @livewire('nav-menu', ['data'=> '$data', '$name => 'toto'])--}}
-
-{{--        <livewire:nav-menu />--}}
-    </aside>
-    <div class="app">
+<body id="app-layout" data-theme="light">
+<main class="main-app container mx-auto min-h-screen">
+    @livewire('nav-menu')
+    <div class="w-2/3 mx-auto my-12 ">
         {{ $slot }}
     </div>
 </main>

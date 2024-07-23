@@ -6,9 +6,14 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "add": "^2.0.6",
+        "autoprefixer": "^10.4.19",
         "axios": "^1.6.4",
+        "daisyui": "^4.12.10",
         "laravel-vite-plugin": "^1.0",
+        "postcss": "^8.4.39",
         "sass": "^1.77.6",
+        "tailwindcss": "^3.4.6",
         "vite": "^5.0"
     },
     "dependencies": {

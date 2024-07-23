@@ -12,6 +12,6 @@ Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login'])->n
 Route::middleware(['auth'])->group(function () {
     Route::get('/', \App\Livewire\Home::class)->name('home');
     Route::get('/dashboard', \App\Livewire\TimeArchive::class)->name('dashboard');
-    Route::get('/app', \App\Livewire\Application::class)->name('app');
+    Route::get('/application', \App\Livewire\TimeEntryForm::class)->name('app');
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 });

@@ -25,7 +25,8 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
-        'is_admin'
+        'is_admin',
+        'firstname'
     ];
 
     /**
@@ -53,6 +54,7 @@ class User extends Authenticatable implements FilamentUser
 
     public function months()
     {
+        $this->weeks = collect($this->weeks);
         return $this->weeks
             ->sortBy('start_date')
             ->groupBy(function($week) {
@@ -60,9 +62,14 @@ class User extends Authenticatable implements FilamentUser
             });
     }
 
-    public function week(): HasMany
+    public function weeks(): HasMany
     {
         return $this->hasMany(Week::class);
+    }
+
+    public function week($date)
+    {
+        return $this->weeks()->where('start_date', $date);
     }
 
     function getIsAdminAttribute(): bool
